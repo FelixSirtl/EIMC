@@ -442,7 +442,7 @@ Blockly.Blocks['Projector'] = {
     this.appendValueInput("NAME")
         .setCheck(null)
         .appendField("Projector")
-        .appendField(new Blockly.FieldImage("https://abload.de/img/typefilterpngxlkp2.png", 15, 15, { alt: "bild kann nicht geladen werden", flipRtl: "FALSE" }));
+        .appendField(new Blockly.FieldImage("https://abload.de/img/projectorxdjx1.png", 15, 15, { alt: "bild kann nicht geladen werden", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Query");
     this.setNextStatement(true, "Query");
     this.setColour(200);
