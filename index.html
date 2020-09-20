@@ -107,15 +107,15 @@
 
           <block type="Touchoperator"></block>  
           <block type="Insidelist"></block>
-        
+       
           <label text="    ...     "></label>
 
           <label text="Separator"></label>
           <sep gap="12"></sep>
 
           <block type="line"></block>  
-         
-        
+   
+
         </category>
 
 
@@ -278,8 +278,6 @@
     var run = function(){
         Blockly.JavaScript.addReservedWords('code');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
-    
-        // now what do you do want to do with code...?
         alert(code);
     }
     

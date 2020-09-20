@@ -1,9 +1,6 @@
 
 Blockly.JavaScript['importmodel'] = function(block) {
     var text_importquery = block.getFieldValue('Importquery');
-    // TODO: Assemble JavaScript into code variable.
-
-
     var code = "ImportModel: " + text_importquery + ";\n";
     return code;
   };
@@ -58,7 +55,6 @@ Blockly.JavaScript['importmodel'] = function(block) {
 
   Blockly.JavaScript['Test_identifier'] = function(block) {
     var testidentifier = block.getFieldValue('testdrop');
-    // TODO: Assemble JavaScript into code variable.
     var code = "" + testidentifier + "";
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -66,7 +62,6 @@ Blockly.JavaScript['importmodel'] = function(block) {
   Blockly.JavaScript['attribute_identifier'] = function(block) {
     var propsidentifier =  Blockly.JavaScript.valueToCode(block, 'own_entity', Blockly.JavaScript.ORDER_ATOMIC);
     var props = block.getFieldValue('Drop');
-    // TODO: Assemble JavaScript into code variable.
     var code = '' + props + ' '+ propsidentifier + '';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -74,7 +69,6 @@ Blockly.JavaScript['importmodel'] = function(block) {
   Blockly.JavaScript['property_identifier'] = function(block) {
     var propsidentifier =  Blockly.JavaScript.valueToCode(block, 'own_entity', Blockly.JavaScript.ORDER_ATOMIC);
     var props = block.getFieldValue('Drop');
-    // TODO: Assemble JavaScript into code variable.
     var code = '' + props + ' '+ propsidentifier + '';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -82,7 +76,6 @@ Blockly.JavaScript['importmodel'] = function(block) {
   Blockly.JavaScript['propertyset_identifier'] = function(block) {
     var propsidentifier =  Blockly.JavaScript.valueToCode(block, 'own_entity', Blockly.JavaScript.ORDER_ATOMIC);
     var props = block.getFieldValue('Drop');
-    // TODO: Assemble JavaScript into code variable.
     var code = '' + props + ' '+ propsidentifier + '';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -105,7 +98,7 @@ Blockly.JavaScript['importmodel'] = function(block) {
 
   Blockly.JavaScript['integernode'] = function(block) {
     var dropdown = block.getFieldValue('o');
-    var code = ''+ dropdown + ';\n';
+    var code = ''+ dropdown + '';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
@@ -130,108 +123,109 @@ Blockly.JavaScript['importmodel'] = function(block) {
 
   Blockly.JavaScript['xchecktest'] = function(block) {
   
-    var Check = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
+    var EmptyXCheck = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
     var codeX = "";
     if(block.itemCount_)
     {
-      var value_name;
+      var valueX;
       for(var i = 0; i <= block.itemCount_ -0; i++)
       {
-        value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += value_name + '\n';
+        valueX = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
+        codeX += valueX + "\n";
       }
-      value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-      codeX += value_name + "\n";
+      valueX = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
+      codeX += valueX;
     }
-  var code = "XCheck: " + Check + " " + codeX + ";\n";
+  var code = "XCheck: " + EmptyXCheck + " " + codeX + ";\n";
     return code;
   };
 
   Blockly.JavaScript['Attributechecktest'] = function(block) {
   
-    var Check = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
+    var CheckAEmpty = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
     var codeX = "";
     if(block.itemCount_)
     {
-      var value_name;
+      var valueA;
       for(var i = 0; i <= block.itemCount_ -0; i++)
       {
-        value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += value_name + "\n";
+        valueA = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
+        codeX += valueA + "\n";
       }
-      value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-      codeX += value_name + "\n";
+      valueA = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
+      codeX += valueA;
     }
-  var code = "AttributeCheck: " + Check + " " + codeX + ";\n";
+  var code = "AttributeCheck: " + CheckAEmpty + " " + codeX + ";\n";
     return code;
   };
 
   Blockly.JavaScript['Propertychecktest'] = function(block) {
   
-    var Check = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
+    var CheckPEmpty = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
     var codeX = "";
     if(block.itemCount_)
     {
-      var value_name;
+      var valueP;
       for(var i = 0; i <= block.itemCount_ -0; i++)
       {
-        value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += value_name + "\n";
+        valueP = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
+        codeX += valueP+ "\n";
       }
-      value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-      codeX += value_name + "\n";
+      valueP = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
+      codeX += valueP;
     }
-  var code = "PropertyCheck: " + Check + " " + codeX + ";\n";
+  var code = "PropertyCheck: " + CheckPEmpty + " " + codeX + ";\n";
     return code;
   };
 
 
   Blockly.JavaScript['Insidelist'] = function(block) {
   
-    var Check = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
+    var EmptyInside = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION) + "";
+   
+
+
     var codeX = '';
     if(block.itemCount_)
     {
+      var valueI;
   
-      var value_name;
-  
-      for(var i = 0; i <= block.itemCount_ -0; i++)
+     
+      for(var i = 0; i <= block.itemCount_ +0; i++)
       {
   
-        value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += value_name;
+        valueI = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
+        codeX += valueI + "\n";
       }
-      value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-      codeX += value_name;
+      valueI = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
+      codeX += valueI;
+
+   
     }
 
-  var code = "Inside: " + Check  + codeX + ";\n";
+  var code = "Inside: " + EmptyInside  + codeX + ";\n";
   
     return code;
   };
 
-  
+
+
   Blockly.JavaScript['Touchoperator'] = function(block) {
   
-    var Check = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
+    var EmptyTouch = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
     var codeX = '';
     if(block.itemCount_)
     {
-  
-      var value_name;
-  
+      var valueT;
       for(var i = 0; i <= block.itemCount_ -0; i++)
       {
-  
-        value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += value_name;
+        valueT = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
+        codeX += valueT + "\n";
       }
-      value_name = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-      codeX += value_name;
+      valueT = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
+      codeX += valueT;
     }
-
-  var code = "Inside: " + Check  + codeX + ";\n";
-  
+  var code = "Touch: " + EmptyTouch  + codeX + ";\n";
     return code;
   };
 
