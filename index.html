@@ -143,7 +143,7 @@
     
     <category name="Use Case">
         <block type="importmodel">
-        <field name="Importquery">"C:\\Users\\enter_own_path.ifc"</field>
+        <field name="Importquery">"C:\Users\enter_own_path.ifc"</field>
         <next>
             <block type="applicability">
             <value name="NAME">
@@ -230,8 +230,10 @@
       Blockly.JavaScript.addReservedWords('code');
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       carea = document.getElementById("codearea");
-      code = code.replace(/,\s*]/g, ']');
-      carea.value = "{"  + code + "}"
+      code = "{"  + code.replace(/,\s*]/g, ']') + "}";
+
+      var jsonPretty = JSON.stringify(JSON.parse(code),null,2); 
+      carea.value = jsonPretty;
 
     }
   </script>

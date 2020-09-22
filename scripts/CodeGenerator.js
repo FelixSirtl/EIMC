@@ -1,7 +1,8 @@
 
 Blockly.JavaScript['importmodel'] = function(block) {
     var text_importquery = block.getFieldValue('Importquery');
-    var code = "\"ImportModel\":" + text_importquery + ",\n";
+
+    var code = "\"ImportModel\":" + text_importquery.replace(/\\/gi, "\\\\") + ",\n";
     code = code + "\"Applicabilities\":[\n"
     return code;
   };
