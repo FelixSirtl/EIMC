@@ -1,21 +1,22 @@
 
 Blockly.JavaScript['importmodel'] = function(block) {
     var text_importquery = block.getFieldValue('Importquery');
-    var code = "ImportModel: " + text_importquery + ";\n";
+    var code = "\"ImportModel\":" + text_importquery + ",\n";
+    code = code + "\"Applicabilities\":[\n"
     return code;
   };
 
 
   Blockly.JavaScript['applicability'] = function(block) {
     var statement_members = Blockly.JavaScript.statementToCode(block, 'NAME');
-    var code = "\n Applicability;\n" + statement_members + "\n";
+    var code = "\t{\"Applicability\":\n[" + statement_members + "]},\n";
     return code;
   };
 
 
   Blockly.JavaScript['validation'] = function(block) {
     var statement_mem = Blockly.JavaScript.statementToCode(block, 'NAME');
-    var code = "\n Validation;\n" + statement_mem + "\n";
+    var code = "],\n\"Validation\":[\n" + statement_mem + "]\n";
     return code;
   };
 
@@ -23,26 +24,26 @@ Blockly.JavaScript['importmodel'] = function(block) {
 
   Blockly.JavaScript['property_filter'] = function(block) {
     var value_property_filter = Blockly.JavaScript.valueToCode(block, 'Property_Filter', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = "PropertyFilter: " + value_property_filter + ";\n";
+    var code = "\t\t{\"PropertyFilter\":\"" + value_property_filter + "\"},\n";
     return code;
   };
 
 
   Blockly.JavaScript['type_filter'] = function(block) {
     var type_filter = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = "TypeFilter: " + type_filter + ";\n";
+    var code = "\t\t{\"TypeFilter\":\"" + type_filter + "\"},\n";
     return code;
   };
 
   Blockly.JavaScript['Projector'] = function(block) {
     var type_filter = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = "Projector: " + type_filter + ";\n";
+    var code = "\t\t{\"Projector:\"" + type_filter + "},\n";
     return code;
   };
 
   Blockly.JavaScript['attribute_filter'] = function(block) {
     var type_filter = Blockly.JavaScript.valueToCode(block, 'attribute_Filter', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = "AttributeFilter: " + type_filter + ";\n";
+    var code = "\t\t\{\"AttributeFilter:\"" + type_filter + "},\n";
     return code;
   };
  
@@ -118,7 +119,6 @@ Blockly.JavaScript['importmodel'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
-  
 
 
   Blockly.JavaScript['xchecktest'] = function(block) {
@@ -131,12 +131,12 @@ Blockly.JavaScript['importmodel'] = function(block) {
       for(var i = 0; i <= block.itemCount_ -0; i++)
       {
         valueX = Blockly.JavaScript.valueToCode(block, 'ADD' + i, Blockly.JavaScript.ORDER_ATOMIC);
-        codeX += valueX + "\n";
+        codeX += valueX ;
       }
       valueX = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
       codeX += valueX;
     }
-  var code = "XCheck: " + EmptyXCheck + " " + codeX + ";\n";
+  var code = "\t\{\"XCheck\":\"" + EmptyXCheck + codeX + "\"},\n";
     return code;
   };
 
@@ -155,7 +155,7 @@ Blockly.JavaScript['importmodel'] = function(block) {
       valueA = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
       codeX += valueA;
     }
-  var code = "AttributeCheck: " + CheckAEmpty + " " + codeX + ";\n";
+  var code = "\"AttributeCheck\": " + CheckAEmpty + " " + codeX + ";\n";
     return code;
   };
 
@@ -174,7 +174,7 @@ Blockly.JavaScript['importmodel'] = function(block) {
       valueP = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
       codeX += valueP;
     }
-  var code = "PropertyCheck: " + CheckPEmpty + " " + codeX + ";\n";
+  var code = "\"PropertyCheck:\" " + CheckPEmpty + " " + codeX + ";\n";
     return code;
   };
 
@@ -182,15 +182,10 @@ Blockly.JavaScript['importmodel'] = function(block) {
   Blockly.JavaScript['Insidelist'] = function(block) {
   
     var EmptyInside = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION) + "";
-   
-
-
     var codeX = '';
     if(block.itemCount_)
     {
       var valueI;
-  
-     
       for(var i = 0; i <= block.itemCount_ +0; i++)
       {
   
@@ -199,19 +194,13 @@ Blockly.JavaScript['importmodel'] = function(block) {
       }
       valueI = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
       codeX += valueI;
-
-   
     }
 
-  var code = "Inside: " + EmptyInside  + codeX + ";\n";
-  
+    var code = "Inside: " + EmptyInside  + codeX + ";\n";
     return code;
   };
 
-
-
   Blockly.JavaScript['Touchoperator'] = function(block) {
-  
     var EmptyTouch = Blockly.JavaScript.valueToCode(block, 'EMPTY', Blockly.JavaScript.ORDER_ADDITION);
     var codeX = '';
     if(block.itemCount_)

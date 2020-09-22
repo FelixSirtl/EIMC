@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,252 +19,203 @@
 
   <main>
 
-    <div class="blockly-editor">
-      <div id="blocklyDiv" style="height: 600px; width: 100%;" ></div>
-      <button onclick="run()"> ShowCode </button>
-
-      <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-
-        <category name="Start">
-
-          
-
+    <div class="blockly-editor" />
+    <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
+    <button onclick="run()"> ShowCode </button>
+    <textarea id="codearea" rows="20"  style="width: 95%;">
+     
+      </textarea>
+    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    <category name="Start">
         <block type="importmodel"></block>
         <block type="applicability"></block>
         <block type="validation"></block>
         <block type="exportmodel"></block>
-       
-        
-          </category>
-
-          <category name="Template Start">
-            <block type="importmodel">
-             <next>
-              <block type="applicability">
-                <next>
-  
+    </category>
+    
+    <category name="Template Start">
+        <block type="importmodel">
+        <next>
+            <block type="applicability">
+            <next>
+    
                 <block type="validation">
                 </block>
-                
+    
+            </next>
+            </block>
+        </next>
+        </block>
+    </category>
+    
+    <sep></sep>
+    <category name="Filter Operators">
+        <label text="TypeFilter"></label>
+        <sep gap="12"></sep>
+        <block type="type_filter">
+    
+        <value name="NAME">
+            <shadow type="Test_identifier"></shadow>
+        </value>
+    
+        </block>
+    
+        <label text="PropertyFilter"></label>
+        <sep gap="12"></sep>
+        <block type="property_filter"></block>
+    
+    
+        <label text="AttributeFilter"></label>
+        <sep gap="12"></sep>
+        <block type="attribute_filter"></block>
+    </category>
+    
+    <category name="Check Operators">
+        <label text="XCheck"></label>
+        <sep gap="12"></sep>
+        <block type="xchecktest"></block>
+    
+        <label text="PropertyCheck"></label>
+        <sep gap="12"></sep>
+        <block type="Propertychecktest"></block>
+    
+        <label text="AttributeCheck"></label>
+        <sep gap="12"></sep>
+        <block type="Attributechecktest"></block>
+    </category>
+    
+    <category name="Geometry Operators">
+        <label text="Geometry Operators"></label>
+        <sep gap="12"></sep>
+    
+        <block type="Touchoperator"></block>
+        <block type="Insidelist"></block>
+    
+        <label text="    ...     "></label>
+    
+        <label text="Separator"></label>
+        <sep gap="12"></sep>
+    
+        <block type="line"></block>
+    </category>
+    
+    <category name="General Operators">
+        <block type="Projector">
+        <value name="NAME">
+            <shadow type="integernode">
+            <field name="o">1</field>
+            </shadow>
+        </value>
+        </block>
+    
+        <label text="    ...     "></label>
+    </category>
+    
+    <sep></sep>
+    <category name="Identifier">
+        <label text="Property Specification"></label>
+        <sep gap="12"></sep>
+        <block type="property_identifier"></block>
+        <sep gap="8"></sep>
+        <block type="propertyset_identifier"></block>
+    
+        <label text="Attribute Specification"></label>
+        <sep gap="12"></sep>
+        <block type="attribute_identifier"></block>
+    
+        <label text="Entity Specification"></label>
+        <sep gap="12"></sep>
+        <block type="Test_identifier"></block>
+    </category>
+    
+    <category name="Logical Specification">
+        <block type="trueblocks"></block>
+        <sep gap="8"></sep>
+        <block type="istgleich"></block>
+        <sep gap="8"></sep>
+        <block type="integernode"></block>
+        <sep gap="8"></sep>
+        <block type="Identifier"></block>
+        <sep gap="8"></sep>
+        <block type="integernodezwischennode"></block>
+    </category>
+    <sep></sep>
+    
+    <category name="Use Case">
+        <block type="importmodel">
+        <field name="Importquery">"C:\\Users\\enter_own_path.ifc"</field>
+        <next>
+            <block type="applicability">
+            <value name="NAME">
+                <block type="type_filter">
+                <value name="NAME">
+                    <block type="Test_identifier">
+                    <field name="testdrop">IfcWindow</field>
+                    </block>
+                </value>
+                </block>
+            </value>
+            <next>
+            <block type="applicability">
+                <value name="NAME">
+                <block type="type_filter">
+                <value name="NAME">
+                    <block type="Test_identifier"></block>
+                </value>
+                <next>
+    
+                <block type="property_filter">
+                <value name="Property_Filter">
+                <block type="property_identifier">
+                <field name="Drop">LoadBearing</field>
+                <value name="own_entity">
+                    <block type="trueblocks"></block>
+                </value>
+                </block>
+                </value>
+                </block>
+                </next>
+            </block>
+            </value>
+            <next>
+            <block type="validation">
+            <value name="NAME">
+                <block type="xchecktest">
+                <mutation items="1"></mutation>
+                <value name="ADD0">
+                    <block type="property_identifier">
+                    <field name="Drop">ThermalTrancemittance</field>
+                    <value name="own_entity">
+                        <block type="istgleich">
+                        <field name="k">
+                            <=< /field>
+                            <value name="ist">
+                                <block type="Identifier">
+                                <field name="Tt">1.3</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    </block>
+                </value>
+                </block>
+            </value>
+            </block>
                 </next>
                 </block>
-             </next>
-            </block>
-          </category>
-  
-
-          <sep></sep>
-        <category name="Filter Operators">
-          
-         <label text="TypeFilter"></label>
-         <sep gap="12"></sep>
-          <block type="type_filter">
-           
-            <value name="NAME"> 
-            <shadow type="Test_identifier"></shadow>  
-            </value>
-          
-          </block>
-
-          <label text="PropertyFilter"></label>
-          <sep gap="12"></sep>
-          <block type="property_filter"></block>
-
-          
-          <label text="AttributeFilter"></label>
-          <sep gap="12"></sep>
-          <block type="attribute_filter"></block>
-
-          
-         
-        </category>
-
-        <category name="Check Operators">
-
-          <label text="XCheck"></label>
-          <sep gap="12"></sep>
-          <block type="xchecktest"></block>
-          
-          <label text="PropertyCheck"></label>
-          <sep gap="12"></sep>
-          <block type="Propertychecktest"></block>
-
-          <label text="AttributeCheck"></label>
-          <sep gap="12"></sep>
-          <block type="Attributechecktest"></block>
-
-          
-        </category>
-
-       
-
-
-
-        <category name="Geometry Operators">
-          
-
-          <label text="Geometry Operators"></label>
-          <sep gap="12"></sep>
-
-          <block type="Touchoperator"></block>  
-          <block type="Insidelist"></block>
-       
-          <label text="    ...     "></label>
-
-          <label text="Separator"></label>
-          <sep gap="12"></sep>
-
-          <block type="line"></block>  
-   
-
-        </category>
-
-
-        <category name="General Operators">
-
-
-              <block type="Projector">
-                <value name="NAME">           
-                      <shadow type="integernode">
-                        <field name="o">1</field>
-                      </shadow>                   
-                </value>
-              </block>
-
-              <label text="    ...     "></label>
-
-
-        </category>
-
-        <sep></sep>
-
-        <category name="Identifier">
-          
-          <label text="Property Specification"></label>
-          <sep gap="12"></sep>
-         <block type="property_identifier"></block> 
-         <sep gap="8"></sep>
-         <block type="propertyset_identifier"></block> 
-
-         <label text="Attribute Specification"></label>
-         <sep gap="12"></sep>
-         <block type="attribute_identifier"></block>
-
-         <label text="Entity Specification"></label>
-         <sep gap="12"></sep>
-         <block type="Test_identifier"></block>   
-
-      
-         
-         
-         
-        </category>
-
-        <category name="Logical Specification">
-          
-        
-          <block type="trueblocks"></block>   
-          <sep gap="8"></sep>
-          <block type="istgleich"></block> 
-          <sep gap="8"></sep>
-          <block type="integernode"></block>  
-          <sep gap="8"></sep> 
-          <block type="Identifier"></block>   
-          <sep gap="8"></sep> 
-          <block type="integernodezwischennode"></block>   
-          
-         
-         </category>
-
-         <sep></sep>
-     
-
-        <category name="Use Case">
-          <block type="importmodel">
-            <field name="Importquery">"C:\Users\enter_own_path.ifc"</field>
-
-        
-           <next>
-            <block type="applicability">
-              <value name="NAME"> 
-             
-                <block type="type_filter">
-                <value name="NAME"> 
-                <block type="Test_identifier">
-                  <field name="testdrop">IfcWindow</field>
-                </block>  
-                </value>        
-              </block>       
-            </value>
-
-              <next>
-           <block type="applicability">
-            <value name="NAME"> 
-              <block type = "type_filter">
-                <value name="NAME"> 
-                <block type="Test_identifier"></block>  
-                </value>
-                        <next>
-                            <block type = "property_filter">
-                              <value name="Property_Filter"> 
-                                <block type="property_identifier">
-                                  <field name="Drop">LoadBearing</field>
-                                  <value name="own_entity"> 
-                                      <block type = "trueblocks"></block>
-                                    </value>
-                                </block>  
-                              </value>
-                            </block>
-                        </next>
-            
-              </block>
-
-            </value>
-                <next>
-              <block type="validation">
-                      <value name="NAME"> 
-                      <block type="xchecktest">
-                        <mutation items="1"></mutation>
-                        <value name="ADD0"> 
-                        <block type="property_identifier">
-                          <field name="Drop">ThermalTrancemittance</field>
-                        
-                                <value name="own_entity">
-                                      <block type="istgleich">
-                                      <field name="k"><=</field>
-                                      <value name="ist">
-                                      
-                                      <block type="Identifier">
-                                        <field name="Tt">1.3</field>
-                                      </block>
-                                    </value>
-                                </block>  
-                                </value>
-
-                      </block> 
-                      </value>
-                      </block>     
-                    </value>
-              </block>
             </next>
-          </block>
-              </next>
-              </block>
-           </next>
-          </block>
-        </category>
-        
-     
-
+            </block>
+        </next>
+        </block>
+    </category>
   </main>
 
   <script>
-    var workspace = Blockly.inject('blocklyDiv',{toolbox: document.getElementById('toolbox')});
+    var workspace = Blockly.inject('blocklyDiv', { toolbox: document.getElementById('toolbox') });
   </script>
-  
+
 
   <script src="https://unpkg.com/blockly"></script>
- 
   <script src="scripts/Blockstest.js"></script>
   <script src="scripts/geometryOperators.js"></script>
   <script src="scripts/Checkoperators.js"></script>
@@ -274,18 +226,15 @@
 
 
   <script>
+    var run = function () {
+      Blockly.JavaScript.addReservedWords('code');
+      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      carea = document.getElementById("codearea");
+      code = code.replace(/,\s*]/g, ']');
+      carea.value = "{"  + code + "}"
 
-    var run = function(){
-        Blockly.JavaScript.addReservedWords('code');
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        alert(code);
     }
-    
-    </script>
-
-
+  </script>
 
 </body>
-
 </html>
-  
