@@ -19,7 +19,7 @@ Blockly.defineBlocksWithJsonArray([
   "inputsInline": false,
   "previousStatement": "Query",
   "nextStatement": "Query",
-  "colour": "#616a6b",
+  "colour": "#808080",
   "tooltip": "",
   "helpUrl": ""
 },
@@ -101,7 +101,7 @@ Blockly.defineBlocksWithJsonArray([
     }
   ],
   "output": null,
-  "colour": 299,
+  "colour": "#CCCCCC",
   "tooltip": "",
   "helpUrl": ""
 },
@@ -139,21 +139,10 @@ Blockly.defineBlocksWithJsonArray([
     }
   ],
   "output": null,
-  "colour": 299,
+  "colour": "#CCCCCC",
   "tooltip": "",
   "helpUrl": ""
 },
-{
-  "type": "AND",
-  "message0": "AND",
-  "inputsInline": false,
-  "previousStatement": "Query",
-  "nextStatement": "Query",
-  "colour": " #515a5a",
-  "tooltip": "",
-  "helpUrl": ""
-},
-
 
 
 
@@ -221,7 +210,7 @@ Blockly.defineBlocksWithJsonArray([
   ],
   
   "output": null,
-  "colour": 359,
+  "colour": ("#6c4675"),
   "tooltip": "",
   
   "mutator": "identifier_mutator"
@@ -282,7 +271,7 @@ Blockly.defineBlocksWithJsonArray([
     },
   ],
   "output": null,
-  "colour": " #d98880 ",
+  "colour": "#fa9169",
   "tooltip": "",
   "helpUrl": "",
   "mutator": "testidentifier_mutator"
@@ -356,6 +345,7 @@ Blockly.Constants.MUTATOR_MIXIN = {
       Blockly.Constants.MUTATOR_EXTENSION);
   
 
+
 /* mutator 1
 */
 
@@ -389,7 +379,7 @@ updateShape_: function(divisorInput) {
     if (!inputExists) {
       
       this.appendValueInput('DIVISOR')
-          .appendField(new Blockly.FieldTextInput("enter own string"), "testit")
+          .appendField(new Blockly.FieldTextInput("enter own string"), "WhyDrei")
           .setCheck('entity');
       
           
@@ -431,7 +421,7 @@ Blockly.Blocks['type_filter'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/typefilterpngxlkp2.png", 15, 15, { alt: "bild kann nicht geladen werden", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Query");
     this.setNextStatement(true, "Query");
-    this.setColour(0);
+    this.setColour("#64A0C8");
  this.setTooltip("TypeFilter: Operator filters Ifc types");
  this.setHelpUrl("");
   }
@@ -445,7 +435,7 @@ Blockly.Blocks['Projector'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/projectorxdjx1.png", 15, 15, { alt: "bild kann nicht geladen werden", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Query");
     this.setNextStatement(true, "Query");
-    this.setColour(200);
+    this.setColour("#9F7D23");
  this.setTooltip("Projector: Dissolves Relations to Sets");
  this.setHelpUrl("");
   }
@@ -459,7 +449,7 @@ Blockly.Blocks['property_filter'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/testproperty1ibjwe.png", 15, 15, { alt: "*", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Query");
     this.setNextStatement(true, "Query");
-    this.setColour(180);
+    this.setColour("#5C4580");
  this.setTooltip("PropertyFilter: Operator filters properties");
  this.setHelpUrl("");
   }
@@ -473,7 +463,7 @@ Blockly.Blocks['xcheck'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/check23sjo4.png", 15, 15, { alt: "*", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Check");
     this.setNextStatement(true, "Check");
-    this.setColour(102);
+    this.setColour("#A2AD00");
  this.setTooltip("XCheck: general Check operator");
  this.setHelpUrl("");
   }
@@ -487,7 +477,7 @@ Blockly.Blocks['attributecheck'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/check23sjo4.png", 15, 15, { alt: "*", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Check");
     this.setNextStatement(true, "Check");
-    this.setColour(106);
+    this.setColour("#A2AD00");
  this.setTooltip("AttributeCheck: Attribute Check operator");
  this.setHelpUrl("");
   }
@@ -501,7 +491,7 @@ Blockly.Blocks['propertycheck'] = {
         .appendField(new Blockly.FieldImage("https://abload.de/img/check23sjo4.png", 15, 15, { alt: "*", flipRtl: "FALSE" }));
     this.setPreviousStatement(true, "Check");
     this.setNextStatement(true, "Check");
-    this.setColour(110);
+    this.setColour("#A2AD00");
  this.setTooltip("PropertyCheck: Property Check operator");
  this.setHelpUrl("");
   }
@@ -511,10 +501,10 @@ Blockly.Blocks['importmodel'] = {
   init: function() {
     this.appendDummyInput()
         .setAlign(Blockly.ALIGN_CENTRE)
-        .appendField(new Blockly.FieldLabelSerializable("ImportModel             "), "ImportModel")
+        .appendField(new Blockly.FieldLabelSerializable("Import Model             "), "ImportModel")
         .appendField(new Blockly.FieldTextInput("Input file path to IFC model"), "Importquery");
     this.setNextStatement(true, "ST");
-    this.setColour(230);
+    this.setColour("#005293");
   
  this.setTooltip("");
  this.setHelpUrl("");
@@ -531,7 +521,7 @@ Blockly.Blocks['applicability'] = {
     this.appendDummyInput();
     this.setPreviousStatement(true, "ST");
     this.setNextStatement(true, "ST");
-    this.setColour(230);
+    this.setColour("#005293");
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -547,7 +537,7 @@ Blockly.Blocks['validation'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput("Download-Link"), "Download");
     this.setPreviousStatement(true, "ST");
-    this.setColour(230);
+    this.setColour("#005293");
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -561,7 +551,7 @@ Blockly.Blocks['exportmodel'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput("Download-Link"), "Download");
     this.setPreviousStatement(true, "ST");
-    this.setColour(230);
+    this.setColour("#005293");
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -586,9 +576,9 @@ Blockly.Blocks['attribute_filter'] = {
 Blockly.Blocks['trueblocks'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["true","true"], ["false","false"]]), "trueblock");
+        .appendField(new Blockly.FieldDropdown([["true","true"], ["false","false"], ["exists","exists"]]), "trueblock");
     this.setOutput(true, null);
-    this.setColour(299);
+    this.setColour("#f4b752");
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -602,7 +592,7 @@ Blockly.Blocks['Identifier'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput("enter own input"), "Tt");
     this.setOutput(true, null);
-    this.setColour(299);
+    this.setColour("#CCCCCC");
  this.setTooltip("");
  this.setHelpUrl("");
   }

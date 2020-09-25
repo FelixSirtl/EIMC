@@ -5,7 +5,7 @@ Blockly.Blocks['Touchoperator'] = {
     this.itemCount_ = 0;
     this.updateShape_();
     this.setPreviousStatement(true, "Query");
-    this.setColour(199);
+    this.setColour("#507F70");
     this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
     this.setTooltip("hello");
   },
@@ -108,7 +108,7 @@ Blockly.Blocks['Insidelist'] = {
     this.updateShape_();
     this.setPreviousStatement(true, "Query");
   
-    this.setColour(199);
+    this.setColour("#507F70");
    
     this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
     this.setTooltip("hello");
