@@ -20,7 +20,7 @@
   <main>
 
     <div class="blockly-editor" />
-    <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
+    <div id="blocklyDiv" style="height: 800px; width: 100%;"></div>
     <button onclick="run()"> ShowCode </button>
     <textarea id="codearea" rows="20"  style="width: 95%;">
      
@@ -30,9 +30,12 @@
         <block type="importmodel"></block>
         <block type="applicability"></block>
         <block type="validation"></block>
-        <block type="exportmodel"></block>
+     
+        <block type="exportmodel" disabled="true"></block>
     </category>
     
+   
+
     <category name="Template Start">
         <block type="importmodel">
         <next>
@@ -97,10 +100,15 @@
         <sep gap="12"></sep>
     
         <block type="line"></block>
+
+        <label text="Topological Index Identifier"></label>
+        <sep gap="12"></sep>
+        <block type="topo"></block>
+        <block type="topozwischen"></block>
     </category>
     
     <category name="General Operators">
-        <block type="Projector">
+        <block type="Projector" disabled="true">
         <value name="NAME">
             <shadow type="integernode">
             <field name="o">1</field>
@@ -133,11 +141,15 @@
         <sep gap="8"></sep>
         <block type="istgleich"></block>
         <sep gap="8"></sep>
-        <block type="integernodezwischennode"></block>
-        <sep gap="8"></sep>
         <block type="integernode"></block>
         <sep gap="8"></sep>
+        <block type="integernodezwischennode"></block>
+        <sep gap="8"></sep>
         <block type="Identifier"></block>
+    
+    
+        
+        
       
     </category>
     <sep></sep>

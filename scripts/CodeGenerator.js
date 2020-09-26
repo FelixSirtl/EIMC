@@ -111,6 +111,14 @@ Blockly.JavaScript['Identifier'] = function(block) {
 
 
 
+Blockly.JavaScript['topo'] = function(block) {
+  var dropdown = block.getFieldValue('topo');
+  var code = ''+ dropdown + '';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+
+
 Blockly.JavaScript['integernode'] = function(block) {
   var dropdown = block.getFieldValue('o');
   var code = ''+ dropdown + '';
@@ -128,6 +136,13 @@ Blockly.JavaScript['istgleich'] = function(block) {
 
 Blockly.JavaScript['integernodezwischennode'] = function(block) {
   var test =  Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown = block.getFieldValue('k');
+  var code = '' + dropdown + " " + test + '';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['topozwischen'] = function(block) {
+  var test =  Blockly.JavaScript.valueToCode(block, 'topo', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown = block.getFieldValue('k');
   var code = '' + dropdown + " " + test + '';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];

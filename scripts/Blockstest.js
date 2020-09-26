@@ -107,6 +107,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 
 
+
 {
   "type": "integernode",
   "message0": "%1",
@@ -145,7 +146,6 @@ Blockly.defineBlocksWithJsonArray([
 },
 
 
-
 {
   "type": "property_identifier",
   "message0": "%1 %2",
@@ -180,6 +180,7 @@ Blockly.defineBlocksWithJsonArray([
   
   "mutator": "identifier_mutator"
 },
+
 
 
 {
@@ -585,6 +586,29 @@ Blockly.Blocks['trueblocks'] = {
 };
 
 
+Blockly.Blocks['topo'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]]), "topo");
+    this.setOutput(true, null);
+    this.setColour("#5085b2");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+Blockly.Blocks['topozwischen'] = {
+  init: function() {
+    this.appendValueInput("topozwischen")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]]), "topo");
+        this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour("#5085b2");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 
 Blockly.Blocks['Identifier'] = {
