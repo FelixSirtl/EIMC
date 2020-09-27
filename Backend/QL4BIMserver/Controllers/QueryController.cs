@@ -32,8 +32,7 @@ namespace TodoApi.Controllers
                 payload_str = Encoding.ASCII.GetString(ms.ToArray());                
             }
 
-            var ql_code = run_cmd("/home/simon/Documents/dev/EIMC/Backend/im2ql/main.py", payload_str);
-
+            var ql_code = run_cmd("/home/simon/Documents/dev/EIMC/Backend/QL4BIMserver/im2ql/main.py", payload_str);
             return "test";
         }
 

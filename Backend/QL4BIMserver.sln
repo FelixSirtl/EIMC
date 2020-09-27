@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QL4BIMprimitives", "QL4BIMp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QL4BIMspatial", "QL4BIMspatial\QL4BIMspatial.csproj", "{46E7B29A-DF3C-4712-ABD5-796AA2576839}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL4BIM4EIMC", "QL4BIMserver\QL4BIM4EIMC.csproj", "{C7D37795-FA3B-495F-933C-F3A4ABAA60F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL4BIM4server", "QL4BIMserver\QL4BIM4server.csproj", "{6EC32BB0-AA17-414A-A892-D37BE5CD0F8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +39,10 @@ Global
 		{C7D37795-FA3B-495F-933C-F3A4ABAA60F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7D37795-FA3B-495F-933C-F3A4ABAA60F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7D37795-FA3B-495F-933C-F3A4ABAA60F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EC32BB0-AA17-414A-A892-D37BE5CD0F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC32BB0-AA17-414A-A892-D37BE5CD0F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EC32BB0-AA17-414A-A892-D37BE5CD0F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC32BB0-AA17-414A-A892-D37BE5CD0F8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
