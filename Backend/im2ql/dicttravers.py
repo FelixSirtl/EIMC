@@ -50,9 +50,11 @@ def nodes_traversal(d, querybuild):
 
     iter1(d, None, [], None, None, querybuild)
 
+
 def process_value(d, parent, querybuilder: qlbuilder):
     if d == "Geometrieseparator":
         querybuilder.set_geoopt()
+
 
 def process_node(d, parent, stack, key, index, querybuilder: qlbuilder):
 
@@ -75,7 +77,12 @@ def process_node(d, parent, stack, key, index, querybuilder: qlbuilder):
 
     if key == "XCheck":
         pred_parts = predicate_splitter(d)
-        querybuilder.addXCheckOpt(pred_parts[0], pred_parts[-1])
+
+        #with index or without
+        if len(pred_parts) == 3:
+            querybuilder.addXCheckOpt(pred_parts[0], pred_parts[-1])
+        elif len(pred_parts) == 4: #with index
+            querybuilder.addXCheckOpt(pred_parts[0], pred_parts[-2], pred_parts[-1])
         querybuilder.increase_validation_index()
 
 
@@ -89,6 +96,14 @@ def predicate_splitter(pred):
     parts = pred.split()
     if len(parts) == 2:
         parts.insert(1, "=")
+
+    last = parts[-1]
+
+    last_parts = None
+    if ";" in last:
+        last_parts = last.split(";")
+        parts.pop()
+        parts.extend(last_parts)
 
     return parts
 

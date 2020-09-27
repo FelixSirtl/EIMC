@@ -136,13 +136,29 @@ class qlbuilder:
 
 
     def addXCheckOpt(self, attribute, value, index=None):
-        for last_app_vari in self.vari_hierachie.app_last_varis:
+
+        # if no index is present take all last varies, if present then add this to list
+        last_varis = self.vari_hierachie.app_last_varis
+
+        if index is not None: #new list with only that entry
+            last_varis = [last_varis[int(index)-1]]
+
+        #do it for all last varis of the applicablities
+        for last_app_vari in last_varis:
+
+            # check if the vari is a set or a relation
             if(isinstance(last_app_vari, self.set)):
+
+                #do simple set check
                 self.addXCheckOpt_local(last_app_vari, attribute, value)
+
             elif (isinstance(last_app_vari, self.relation)):
+
+                #do check for each column of relation
                 columns_count = last_app_vari.get_relatts_count()
                 for i in range(columns_count):
                     self.addXCheckOpt_local(last_app_vari, attribute, value, i)
+
 
     def addXCheckOpt_local(self, vari_in, attribute, value, index=None):
         next_vari = self.next_variable()

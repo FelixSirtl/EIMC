@@ -32,12 +32,7 @@ namespace TodoApi.Controllers
                 payload_str = Encoding.ASCII.GetString(ms.ToArray());                
             }
 
-            var query = "{\r\n    \"ImportModel\": \"enter_own_path.ifc\",\r\n    \"Applicabilities\": [\r\n      {\r\n        \"Applicability\": [\r\n          {\r\n            \"TypeFilter\": \"IfcWindow\"\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"Applicability\": [\r\n          {\r\n            \"TypeFilter\": \"IfcWall\"\r\n          },\r\n          {\r\n            \"PropertyFilter\": {\"Attribute\":\"LoadBearing\", \"Opt\":\"Eq\", \"Value\":\"true\"}\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"Validation\": [\r\n      {\r\n        \"XCheck\": {\"Attribute\":\"ThermalTrancemittance\", \"Opt\":\"Eq\", \"Value\":12}\r\n      }\r\n    ]\r\n  }";
-
-        var result = run_cmd("/home/simon/Documents/dev/QL4BIM4EIMC/im2ql/main.py", payload_str);
-
-
-
+            var ql_code = run_cmd("/home/simon/Documents/dev/EIMC/Backend/im2ql/main.py", payload_str);
 
             return "test";
         }
