@@ -1,0 +1,5 @@
+﻿entities = ImportModel(\"sample10_tagx.ifc\")
+walls = TypeFilter (entities is IfcWall)
+a[wall|open] = Deassociater (walls.HasOpenings)
+b[wall|open] = AttributeFilter (a, [open].Tag = "tagX")
+c[wall|open] = AttributeCheck (b, [open].Name = "Fenster-005")

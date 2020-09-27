@@ -1,0 +1,4 @@
+﻿entities = ImportModel("sample10.ifc")
+walls = TypeFilter(entities is IfcWall)
+a[] = Dereferencer(walls.ProvidesBoundaries)
+b[wall|boundary] = AttributeFilter(a, [-1].Name = "2ndLevel")

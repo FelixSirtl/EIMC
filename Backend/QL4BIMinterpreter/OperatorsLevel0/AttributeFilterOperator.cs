@@ -1,0 +1,212 @@
+/*
+Copyright (c) 2017 Chair of Computational Modeling and Simulation (CMS), 
+Prof. André Borrmann, 
+Technische Universität München, 
+Arcisstr. 21, D-80333 München, Germany
+
+This file is part of QL4BIMinterpreter.
+
+QL4BIMinterpreter is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+QL4BIMinterpreter is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with QL4BIMinterpreter. If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+using System;
+using System.Linq;
+using QL4BIMinterpreter.QL4BIM;
+
+namespace QL4BIMinterpreter.OperatorsLevel0
+{
+    public class AttributeFilterOperator : IAttributeFilterOperator
+    {
+
+        //only symbols and simple types in operators, no nodes
+        //symbolTable, parameterSym1, ..., returnSym
+        public virtual void AttributeFilterRelAtt(RelationSymbol parameterSym1, PredicateNode[] predicateNodes, RelationSymbol returnSym)
+        {
+            Console.WriteLine("AttributeFilter'ing...");
+            //var index = parameterSym1.Index.Value; todo remove index prop
+            var attributes = parameterSym1.Attributes;
+           var indexAndPreps = predicateNodes.Select(p => 
+            new Tuple<int, PredicateNode>((p.FirstNode as AttributeAccessNode).RelAttNode.AttIndex,p));
+
+            
+
+            var result = parameterSym1.Tuples.Where(t =>indexAndPreps.All(
+                indexAndPrep => AttributeSetTestLocal(t[indexAndPrep.Item1], indexAndPrep.Item2).Item1));
+            returnSym.SetTuples(result);
+        }
+
+
+        public virtual void AttributeFilterSet(SetSymbol parameterSym1, PredicateNode predicateNode, SetSymbol returnSym)
+        {
+            Console.WriteLine("AttributeFilter'ing...");
+            var result = parameterSym1.Entites.Where(e => AttributeSetTestLocal(e, predicateNode).Item1);
+            returnSym.EntityDic = result.ToDictionary(e => e.Id);
+        }
+
+        //return tuples: result of check, prop does exit, value preset with [0]=type, [1]=value, [2]=unnested
+        public Tuple<bool, bool,  string[]> AttributeSetTestLocal(QLEntity entity, PredicateNode predicateNode) //todo all possible versions
+        {
+            var secondNode = predicateNode.SecondNode;
+            var exAtt = (predicateNode.FirstNode as AttributeAccessNode).ExAttNode;
+
+            //property present?
+            var part = entity.GetPropertyValue(exAtt.Value);
+            if (part == null)
+                return new Tuple<bool, bool, string[]>(false, false, null);
+
+            //todo check if un nesting is ok (supports IFC TYPES such as IFCBOOLEAN)
+            var unnested = "false";
+            if (part.QLClass != null)
+            {
+                unnested = "true";
+                part = part.QLClass.QLDirectList[0];
+            }
+
+            var report_value = part.ToString();
+            var report_type = "";
+            if (secondNode is CStringNode)
+            {
+                report_type = "CStringNode";
+                if (TestStringValue(part, secondNode))
+                    return new Tuple<bool, bool, string[]>(true, true, null);
+            }
+
+            if (secondNode is CNumberNode)
+            {
+                report_type = "CNumberNode";
+                if (TestIntValue(part, secondNode, predicateNode.Compare))
+                    return new Tuple<bool, bool, string[]>(true, true, null);
+            }
+
+            if (secondNode is CFloatNode) 
+            {
+                report_type = "CFloatNode";
+                if (TestFloatValue(part, secondNode, predicateNode.Compare))
+                    return new Tuple<bool, bool, string[]>(true, true, null);
+            }
+
+            return new Tuple<bool, bool, string[]>(false, true, new[] { report_type, report_value, unnested });
+        }
+
+        public enum AttributeTestResult { notexisting,  }
+
+        private bool TestStringValue(QLPart part, Node secondNode)
+        {
+            var stringValue = (secondNode as CStringNode).Value;
+
+            if (part.QLString != null)
+            {
+                var strPropValue = part.QLString.QLStr;
+                if (string.Compare(strPropValue, stringValue, StringComparison.OrdinalIgnoreCase) == 0)
+                    return true;
+            }
+            //enum case
+            else if (part.QLEnum != null)
+            {
+                var enumPropValue = part.QLEnum.QLStr;
+                if (string.Compare(enumPropValue, stringValue, StringComparison.OrdinalIgnoreCase) == 0)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private bool TestIntValue(QLPart part, Node secondNode, ParserParts parserParts)
+        {
+            var intValue = (secondNode as CNumberNode).IntValue;
+
+            //int schema to int query
+            if (part.QLNumber != null)
+            {
+                var intPropValue = part.QLNumber.Value;
+                if (Compare(intPropValue, intValue, parserParts))
+                    return true;
+            }
+            //float schema to int query
+            if (part.QLFloat != null)
+            {
+                var floatPropValue = part.QLFloat.Value;
+                if (Compare(floatPropValue, intValue, parserParts))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private bool TestFloatValue(QLPart part, Node secondNode, ParserParts parserParts)
+        {
+            var floatValue = (secondNode as CFloatNode).FloatValue;
+
+            //int schema to float query
+            if (part.QLNumber != null)
+            {
+                var intPropValue = part.QLNumber.Value;
+                if (Compare(intPropValue, floatValue, parserParts))
+                    return true;
+            }
+            //float schema to float query
+            if (part.QLFloat != null)
+            {
+                var floatPropValue = part.QLFloat.Value;
+                if (Compare(floatPropValue, floatValue, parserParts))
+                    return true;
+            }
+
+            return false;
+        }
+
+        const double Tolerance = Double.Epsilon*2;
+
+        private bool Compare(double a, double b, ParserParts parserParts)
+        {
+            if (parserParts == ParserParts.EqualsPred)
+                return Math.Abs(a - b) < Tolerance;
+
+            if (parserParts == ParserParts.LessPred)
+                return a < b;
+
+            if (parserParts == ParserParts.LessEqualPred)
+                return a <= b;
+
+            if (parserParts == ParserParts.MorePred)
+                return a > b;
+
+            if (parserParts == ParserParts.MoreEqualPred)
+                return a >= b;
+
+            throw  new InvalidOperationException();
+        }
+
+        private bool Compare(int a, int b, ParserParts parserParts)
+        {
+            if (parserParts == ParserParts.EqualsPred)
+                return a == b;
+
+            if (parserParts == ParserParts.LessPred)
+                return a > b;
+
+            if (parserParts == ParserParts.LessEqualPred)
+                return a >= b;
+
+            if (parserParts == ParserParts.MorePred)
+                return a < b;
+
+            if (parserParts == ParserParts.MoreEqualPred)
+                return a < b;
+
+            throw new InvalidOperationException();
+        }
+    }
+}

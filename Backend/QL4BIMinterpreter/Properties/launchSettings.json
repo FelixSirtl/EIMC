@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QL4BIMinterpreter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Simon\\Documents\\01_dev\\tp\\ql4bim_X2K\\QL4BIMinterpreter\\queries3.txt\""
+    }
+  }
+}
