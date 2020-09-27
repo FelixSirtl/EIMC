@@ -117,7 +117,12 @@ Blockly.JavaScript['topo'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-
+Blockly.JavaScript['topozwischen'] = function(block) {
+  var test =  Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown = block.getFieldValue('topo');
+  var code = '' + dropdown + " " + test + '';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 
 Blockly.JavaScript['integernode'] = function(block) {
   var dropdown = block.getFieldValue('o');
@@ -141,12 +146,7 @@ Blockly.JavaScript['integernodezwischennode'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.JavaScript['topozwischen'] = function(block) {
-  var test =  Blockly.JavaScript.valueToCode(block, 'topo', Blockly.JavaScript.ORDER_ATOMIC);
-  var dropdown = block.getFieldValue('k');
-  var code = '' + dropdown + " " + test + '';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-};
+
 
 
 
@@ -163,7 +163,7 @@ Blockly.JavaScript['xchecktest'] = function(block) {
       codeX += valueX + ";";
     }
     valueX = Blockly.JavaScript.valueToCode(block, 'ADD' + block.itemCount_, Blockly.JavaScript.ORDER_ATOMIC);
-    codeX += valueX;
+    codeX += valueX + "/n";
   }
 var code = "\t\{\"XCheck\":\"" + EmptyXCheck + codeX + "\"},\n";
   return code;

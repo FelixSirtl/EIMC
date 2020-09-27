@@ -586,9 +586,11 @@ Blockly.Blocks['trueblocks'] = {
 };
 
 
-Blockly.Blocks['topo'] = {
+
+Blockly.Blocks['topozwischen'] = {
   init: function() {
-    this.appendDummyInput()
+    this.appendValueInput("NAME")
+        .setCheck(null)
         .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]]), "topo");
     this.setOutput(true, null);
     this.setColour("#5085b2");
@@ -597,12 +599,10 @@ Blockly.Blocks['topo'] = {
   }
 };
 
-
-Blockly.Blocks['topozwischen'] = {
+Blockly.Blocks['topo'] = {
   init: function() {
-    this.appendValueInput("topozwischen")
+    this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]]), "topo");
-        this.setInputsInline(false);
     this.setOutput(true, null);
     this.setColour("#5085b2");
  this.setTooltip("");
