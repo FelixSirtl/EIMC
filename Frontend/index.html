@@ -21,8 +21,11 @@
 
     <div class="blockly-editor" />
     <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
-    <button onclick="run()"> ShowCode </button>
-    <textarea id="codearea" rows="20" style="width: 95%;">
+    <button id="toggleVisiCodeButton" onclick="toggleVisiCode()"> Code </button>
+    <button id="toggleVisiStatusButton" onclick="toggleVisiStatus()"> Status </button>
+
+    <textarea id="statusarea" rows="10" style="width: 95%; display: none"></textarea>
+    <textarea id="codearea" rows="10" style="width: 95%; display: none">
 
       </textarea>
     <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -243,11 +246,16 @@
       Blockly.JavaScript.addReservedWords('code');
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       carea = document.getElementById("codearea");
+
+
       code = "{" + code.replace(/,\s*]/g, ']') + "}";
       code = code.replace(";;\"", "\"");
-      
-      var jsonPretty = JSON.stringify(JSON.parse(code), null, 2);
+
+
+      var jcode = JSON.parse(code)
+      var jsonPretty = JSON.stringify(jcode, null, 2);
       carea.value = jsonPretty;
+
 
       axios({
         method: 'post',
@@ -255,9 +263,73 @@
         headers: {
         'Content-Type': 'text/plain'
         },
-        data: "test"
+        data: jcode
       });
     }
+
+
+
+    function toggleVisiCode(){
+      toggleVisi("codearea", "toggleVisiCodeButton")
+    }
+
+    let interval = undefined
+    function getStatusEvery(){
+      if(interval == undefined){
+        interval = setInterval(function() {
+          getStatus()
+        }, 5000);
+        return
+      }
+      else
+      { 
+        clearInterval(interval);
+        interval = undefined
+      }
+    }
+
+
+    function getStatus(){
+      axios.get('http://localhost:9000/query', {
+        headers: {
+          'Content-Type': 'text/plain'
+        }
+      })
+      .then(function (response) {
+        document.getElementById("statusarea").value += response.data
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+
+    function toggleVisiStatus(){
+      status = toggleVisi("statusarea", "toggleVisiStatusButton")
+
+        getStatusEvery()
+      
+    }
+
+    function toggleVisi(elementId, buttonId) {
+
+      status = "none"
+      var element= document.getElementById(elementId);
+      if (element.style.display === "none") {
+        element.style.display = "block";
+        status = "block"
+      } else {
+        element.style.display = "none";
+      }
+
+      var bt_element = document.getElementById(buttonId);
+      if (element.style.display === "none") {
+        bt_element.style.background = "#D3D3D3";
+      } else {
+        bt_element.style.background= "#e7e7e7"; 
+      }
+
+      return status
+  }
   </script>
 
 </body>
