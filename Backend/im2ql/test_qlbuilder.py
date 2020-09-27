@@ -1,8 +1,9 @@
-from qlbuilder import qlbuilder
+from qlbuilder import qlbuilder, vari_hierachie
+
 
 
 def test_qlbuilder_sets_rels():
-    qlb = qlbuilder()
+    qlb = qlbuilder(vari_hierachie())
     set_a = qlb.get_variable("set")
     assert str(set_a) == "set1"
 
@@ -19,7 +20,7 @@ def test_qlbuilder_sets_rels():
 
 
 def test_qlbuilder_next_variable():
-    qlb = qlbuilder()
+    qlb = qlbuilder(vari_hierachie())
     set_a = qlb.get_variable("set")
 
     set_b = qlb.next_variable(set_a)
@@ -43,7 +44,7 @@ def test_qlbuilder_next_variable():
 
 
 def test_qlbuilder_addAttStatement():
-    qlb = qlbuilder()
+    qlb = qlbuilder(vari_hierachie())
     qlb.current_var = qlb.get_variable("set")
     qlb.addDerefOpt("att1")
 
@@ -52,7 +53,7 @@ def test_qlbuilder_addAttStatement():
 
 
 def test_qlbuilder_addImportModel():
-    qlb = qlbuilder()
+    qlb = qlbuilder(vari_hierachie())
     qlb.addImportModelOpt("file/path")
 
     opt1 = qlb.statements[0]
@@ -64,7 +65,7 @@ def test_qlbuilder_addImportModel():
 
 
 def test_qlbuilder_addTypeFilter():
-    qlb = qlbuilder()
+    qlb = qlbuilder(vari_hierachie())
     qlb.addImportModelOpt("file/path")
 
     opt1 = qlb.statements[0]

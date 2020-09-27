@@ -244,7 +244,8 @@
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       carea = document.getElementById("codearea");
       code = "{" + code.replace(/,\s*]/g, ']') + "}";
-
+      code = code.replace(";;\"", "\"");
+      
       var jsonPretty = JSON.stringify(JSON.parse(code), null, 2);
       carea.value = jsonPretty;
 

@@ -55,12 +55,13 @@ class qlbuilder:
 
     def set_geoopt(self):
         self.vari_hierachie.geoop_vari = self.vari_hierachie.last_instanciated
+        self.geoop = True
 
 
     def set_appstart(self):
         self.appstart = True
         self.vari_hierachie.app_last_varis.append(self.vari_hierachie.last_instanciated)
-        self.vari_hierachie.last_instanciated = self.vari_hierachie.import_vari
+        #self.vari_hierachie.last_instanciated = self.vari_hierachie.import_vari
 
     def increase_validation_index(self):
         self.vari_hierachie.application_index =+1
@@ -71,6 +72,10 @@ class qlbuilder:
         if self.appstart:
             current_var = self.vari_hierachie.import_vari
             self.appstart = False
+
+        if self.geoop:
+            current_var = self.vari_hierachie.import_vari
+            self.geoop = False
 
         return current_var
 
