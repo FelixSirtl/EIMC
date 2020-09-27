@@ -1,0 +1,1 @@
+{"ImportModel":"C:\\Users\\enter_own_path.ifc","Applicabilities":[{"Applicability":[{"TypeFilter":"IfcWindow"}]},{"Applicability":[{"TypeFilter":"IfcWall"},{"PropertyFilter":"LoadBearing true"}]}],"Validation":[{"XCheck":"ThermalTrancemittance = ;;"}]}
