@@ -535,8 +535,8 @@ Blockly.Blocks['validation'] = {
         .setCheck("Check")
         .appendField("Validation   ");
     this.appendDummyInput();
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("Download-Link"), "Download");
+    this.appendDummyInput();
+      
     this.setPreviousStatement(true, "ST");
     this.setColour("#005293");
  this.setTooltip("");
@@ -549,8 +549,7 @@ Blockly.Blocks['exportmodel'] = {
     this.appendDummyInput()
         .appendField("Export Model     ");
     this.appendDummyInput();
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("Download-Link"), "Download");
+    this.appendDummyInput();
     this.setPreviousStatement(true, "ST");
     this.setColour("#005293");
  this.setTooltip("");
