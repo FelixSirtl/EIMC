@@ -11,4 +11,8 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\QL4BIMinterpreter\QL4BIMinterpreter.csproj" />
+  </ItemGroup>
+
 </Project>

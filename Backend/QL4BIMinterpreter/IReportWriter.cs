@@ -11,7 +11,7 @@ namespace QL4BIMinterpreter
         string Query { get; set; }
 
         void AddEntry(SetSymbol setSymbol, string opName);
-        void WriteReport();
+        string WriteReport();
         void AddEntry(RelationSymbol relSymbol, string opName);
         void AddEntityIdMessageToCheckEntry(QLEntity entity, string message, string value);
         void StartCheckEntry(string context, string opName);

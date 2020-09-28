@@ -23,6 +23,9 @@
     <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
     <button id="toggleVisiCodeButton" onclick="toggleVisiCode()"> Code </button>
     <button id="toggleVisiStatusButton" onclick="toggleVisiStatus()"> Status </button>
+    <button id="ExecuteButton" onclick="send_code()"> Execute </button>
+    <a  id="ReportFileHref">Report File</a>
+
 
     <textarea id="statusarea" rows="10" style="width: 95%; display: none"></textarea>
     <textarea id="codearea" rows="10" style="width: 95%; display: none">
@@ -242,20 +245,28 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
-    var run = function () {
+    function get_code(){
       Blockly.JavaScript.addReservedWords('code');
       var code = Blockly.JavaScript.workspaceToCode(workspace);
-      carea = document.getElementById("codearea");
-
 
       code = "{" + code.replace(/,\s*]/g, ']') + "}";
       code = code.replace(";;\"", "\"");
+      return code
+    }
 
-
-      var jcode = JSON.parse(code)
+    function pretty_code_area(){
+      carea = document.getElementById("codearea");
+      var jcode = JSON.parse(get_code())
       var jsonPretty = JSON.stringify(jcode, null, 2);
       carea.value = jsonPretty;
+    }
 
+    function send_code(){
+      jcode = get_code()
+
+      if(interval == undefined){
+        getStatusEvery();
+      }
 
       axios({
         method: 'post',
@@ -268,8 +279,8 @@
     }
 
 
-
     function toggleVisiCode(){
+      pretty_code_area()
       toggleVisi("codearea", "toggleVisiCodeButton")
     }
 
@@ -278,15 +289,17 @@
       if(interval == undefined){
         interval = setInterval(function() {
           getStatus()
-        }, 5000);
+        }, 500);
         return
       }
       else
       { 
         clearInterval(interval);
-        interval = undefined
+        interval = undefined;
+        document.getElementById("statusarea").value = "";
       }
     }
+
 
 
     function getStatus(){
@@ -296,7 +309,19 @@
         }
       })
       .then(function (response) {
-        document.getElementById("statusarea").value += response.data
+        data = response.data
+        document.getElementById("statusarea").value += data
+        if (data.startsWith("%report_")){
+
+          clearInterval(interval);
+          interval = undefined;
+
+          var res = data.substring(8, data.length)
+
+          reportHref = document.getElementById("ReportFileHref");
+          reportHref.innerHTML = "Report File: " + res;
+          reportHref.setAttribute('href', "http://localhost:9000/reports/" + res);
+        }
       })
       .catch(function (error) {
         console.log(error);

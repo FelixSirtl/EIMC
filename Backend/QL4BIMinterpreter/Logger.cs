@@ -53,7 +53,7 @@ namespace QL4BIMinterpreter
 		        Console.Write(String.Format(
                     "settings.Log.PathLogFileOut directory \"{0}\" does not exist. \nCheck settings... (press any key to continue)",
                     dir));
-                Console.ReadKey();
+                //Console.ReadKey();
 				return;
 	        }
                 

@@ -1,0 +1,2 @@
+set1 = ImportModel("sample10.ifc")
+set2 = TypeFilter(set1 is IfcWindow)

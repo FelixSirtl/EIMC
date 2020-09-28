@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QL4BIMinterpreter;
+using System.Text.RegularExpressions;
 
 namespace TodoApi.Controllers
 {
@@ -14,7 +16,7 @@ namespace TodoApi.Controllers
     [Route("[controller]")]
     public class QueryController : ControllerBase
     {
-
+        static string status = "%idle%";
         private readonly ILogger<QueryController> _logger;
 
         public QueryController(ILogger<QueryController> logger)
@@ -22,9 +24,13 @@ namespace TodoApi.Controllers
             _logger = logger;
         }
 
+        const string temp_query_file = "../queries/temp_query_file.txt";
+
         [HttpPost]
         public async Task<string> Post()
         {   
+            status = "%processing%";
+
             var payload_str = "";
             using (var ms = new MemoryStream(2048))
             {
@@ -33,7 +39,15 @@ namespace TodoApi.Controllers
             }
 
             var ql_code = run_cmd("/home/simon/Documents/dev/EIMC/Backend/QL4BIMserver/im2ql/main.py", payload_str);
-            return "test";
+            string ql_code_pathfix = Regex.Replace(ql_code, @"ImportModel\(([^)]+)\)", "ImportModel(\"$1\")");
+            System.IO.File.WriteAllText(temp_query_file, ql_code_pathfix);
+
+
+
+            var report_id = QLinterpreter.inter_main(new []{temp_query_file});
+
+            status = "%report_" + report_id;
+            return "201";
         }
 
         public string run_cmd(string cmd, string args)
@@ -61,8 +75,11 @@ namespace TodoApi.Controllers
 
         [HttpGet]
         public String Get()
-        {
-            return "hello from the ql4bim server for eimc";
+        {   
+            var status_c = status;
+            if (status.StartsWith("%report_"))
+                status = "%idle";
+            return status_c;
         }
     }
 }

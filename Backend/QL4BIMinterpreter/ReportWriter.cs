@@ -101,7 +101,7 @@ namespace QL4BIMinterpreter
             reportEntries.Add(entry);
         }
 
-        public void WriteReport()
+        public string WriteReport()
         {
             var report = new ReportMeta(reportEntries);
 
@@ -111,6 +111,8 @@ namespace QL4BIMinterpreter
 
             var jsonout = o.ToString();
             File.AppendAllText(FilePath, jsonout);
+
+            return Path.GetFileName(FilePath);
         }
 
         public void SetFilePathFromModelFile(string modelPath)
@@ -122,7 +124,7 @@ namespace QL4BIMinterpreter
                 if(OsHelper.IsWindows())
                     modelPath = Path.Combine(@"..\..\..\..\", modelPath);
                 else if (OsHelper.IsLinux())
-                    modelPath = Path.Combine(@"../reports/", modelPath);
+                    modelPath = Path.Combine(@"../QL4BIMserver/wwwroot/reports/", modelPath);
                 else
                     throw new NotSupportedException();
             }

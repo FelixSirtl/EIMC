@@ -37,7 +37,7 @@ namespace QL4BIMinterpreter
 {
     interface IExecuter
     {
-        void Execute(string query);
+        string Execute(string query);
     }
 
     class Executer : IExecuter
@@ -55,7 +55,7 @@ namespace QL4BIMinterpreter
             this.reportWriter = reportWriter;
         }
 
-        public void Execute(string query)
+        public string Execute(string query)
         {
             //try
             //{
@@ -63,13 +63,13 @@ namespace QL4BIMinterpreter
             reportWriter.Query = query;
 
             if (string.IsNullOrEmpty(query) || string.IsNullOrWhiteSpace(query))
-                return;
+                return "empty query";
 
             var queryNode = queryReader.Parse(query);
             symbolVisitor.Visit(queryNode);
             executionVisitor.Visit(queryNode);
 
-            reportWriter.WriteReport();
+            return reportWriter.WriteReport();
             
             //}
             //catch (QueryException e)
@@ -82,11 +82,11 @@ namespace QL4BIMinterpreter
         }
     }
 
-    class Program
+    public class QLinterpreter
     {
         private const string VERSION = "1.1.0"; 
 
-        static void Main(string[] args)
+        public static string inter_main(string[] args)
         {
             var location = System.Reflection.Assembly.GetEntryAssembly().Location;
             SetupEngineDll(location);
@@ -148,11 +148,11 @@ namespace QL4BIMinterpreter
             {
                 Console.WriteLine("Expecting one argument containing the file path to a ql4bim query");
                 Console.ReadLine();
-                return;
+                return "";
             }
 
             var query = loadQuery(args[0]);
-            executer.Execute(query);
+            return executer.Execute(query);
 
         }
 
