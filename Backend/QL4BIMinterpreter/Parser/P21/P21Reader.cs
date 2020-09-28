@@ -61,7 +61,7 @@ namespace QL4BIMinterpreter.P21
 
             string schemaFilename = string.Empty;
             if(OsHelper.IsWindows())
-                schemaFilename = isIfc4 ? @"..\..\..\..\RDF\IfcEngineConf\IFC4.exp" : @"..\..\..\..\RDF\IfcEngineConf\IFC2X3_TC1.exp";
+                schemaFilename = isIfc4 ? @"..\RDF\IfcEngineConf\IFC4.exp" : @"..\RDF\IfcEngineConf\IFC2X3_TC1.exp";
             else if (OsHelper.IsLinux())
                 schemaFilename = isIfc4 ? @"../RDF/IfcEngineConf/IFC4.exp" : @"../RDF/IfcEngineConf/IFC2X3_TC1.exp";
             else
@@ -246,7 +246,7 @@ namespace QL4BIMinterpreter.P21
             bool currentIfc4;
             var linesAsString = ExtractEntityLines(ifcFilename, out currentIfc4);
 
-            linesAsString = linesAsString.Replace("\n", "\r\n");
+            //linesAsString = linesAsString.Replace("\n", "\r\n");
 
             QLEntityId.SetStartId();
 

@@ -2,6 +2,7 @@ import json
 from qlbuilder import qlbuilder, vari_hierachie
 
 vari_hier = vari_hierachie()
+app_count = 0
 
 def nodes_to_list1(d):
     def iter1(d, keys, level, parent):
@@ -22,6 +23,10 @@ def nodes_to_list1(d):
         return keys
 
     return iter1(d, [], 0, "None")
+
+def nodes_traversal_with_appCount(d, querybuild):
+    app_count = len(d["Applicabilities"])
+    nodes_traversal(d, querybuild)
 
 
 def nodes_traversal(d, querybuild):
@@ -72,6 +77,16 @@ def process_node(d, parent, stack, key, index, querybuilder: qlbuilder):
         pred_parts = predicate_splitter(d)
         querybuilder.addAttFilterOpt(pred_parts[0], pred_parts[-1])
 
+    if key == "AttributeCheck":
+        pred_parts = predicate_splitter(d)
+
+        #with index or without
+        if len(pred_parts) == 3:
+            querybuilder.addAttCheckOpt(pred_parts[0], pred_parts[-1])
+        elif len(pred_parts) == 4: #with index
+            querybuilder.addAttCheckOpt(pred_parts[0], pred_parts[-2], pred_parts[-1])
+        querybuilder.increase_validation_index()
+
     if key == "Touch":
         querybuilder.addTouchOpt(d)
 
@@ -88,7 +103,7 @@ def process_node(d, parent, stack, key, index, querybuilder: qlbuilder):
 
 
 def process_node_post(d, parent, stack, key, index, querybuilder: qlbuilder):
-    if key == "Applicability":
+    if key == "Applicability" and app_count > 0:
         querybuilder.set_appstart()
 
 
@@ -105,5 +120,22 @@ def predicate_splitter(pred):
         parts.pop()
         parts.extend(last_parts)
 
+    checkvalue = parts[2]
+    if not (isFloat(checkvalue) or isInt(checkvalue)):
+        parts[2] ="\"" +  checkvalue + "\""
+
     return parts
 
+def isFloat(value):
+  try:
+    float(value)
+    return True
+  except ValueError:
+    return False
+
+def isInt(value):
+  try:
+    int(value)
+    return True
+  except ValueError:
+    return False

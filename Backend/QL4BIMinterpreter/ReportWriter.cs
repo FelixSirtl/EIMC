@@ -57,8 +57,12 @@ namespace QL4BIMinterpreter
         }
 
         public void FinischCheckEntry()
-        {
-            checkReportEntry.EntityIds = new List<Tuple<string, string, string>>(checkSB);
+        {   
+            var checkSB_l = checkSB.ToList();
+            if(checkSB_l.Count > 100)
+                checkSB_l = checkSB.Take(100).ToList();
+
+            checkReportEntry.EntityIds = new List<Tuple<string, string, string>>(checkSB_l);
 
             reportEntries.Add(checkReportEntry);
         }
@@ -122,7 +126,7 @@ namespace QL4BIMinterpreter
             if(isRelative)
             {   
                 if(OsHelper.IsWindows())
-                    modelPath = Path.Combine(@"..\..\..\..\", modelPath);
+                    modelPath = Path.Combine(@"..\QL4BIMserver\wwwroot\reports\", modelPath);
                 else if (OsHelper.IsLinux())
                     modelPath = Path.Combine(@"../QL4BIMserver/wwwroot/reports/", modelPath);
                 else

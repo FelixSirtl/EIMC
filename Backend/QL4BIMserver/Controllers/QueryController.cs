@@ -38,7 +38,8 @@ namespace TodoApi.Controllers
                 payload_str = Encoding.ASCII.GetString(ms.ToArray());                
             }
 
-            var ql_code = run_cmd("/home/simon/Documents/dev/EIMC/Backend/QL4BIMserver/im2ql/main.py", payload_str);
+            // linux path "/home/simon/Documents/dev/EIMC/Backend/QL4BIMserver/im2ql/main.py"
+            var ql_code = run_cmd(@"C:\Users\simon.daum\Documents\03_Dev\EIMC\Backend\QL4BIMserver\im2ql\main.py", payload_str);
             string ql_code_pathfix = Regex.Replace(ql_code, @"ImportModel\(([^)]+)\)", "ImportModel(\"$1\")");
             System.IO.File.WriteAllText(temp_query_file, ql_code_pathfix);
 
@@ -53,7 +54,8 @@ namespace TodoApi.Controllers
         public string run_cmd(string cmd, string args)
         {
             ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "/home/simon/.local/share/virtualenvs/im2ql-FysY6N98/bin/python3";
+            //linux start.FileName = "/home/simon/.local/share/virtualenvs/im2ql-FysY6N98/bin/python3";
+            start.FileName = @"C:\Users\simon.daum\.virtualenvs\Backend-GniVr3vf\Scripts\python.exe";
             args = args.Replace("\"", "$");
             
             start.Arguments = string.Format("{0} \"{1}\"", cmd, args);

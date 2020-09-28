@@ -80,7 +80,14 @@ namespace QL4BIMinterpreter.OperatorsCheck
             {
                 //return tuples: result of check, prop does exit, value preset with [0]=type, [1]=value, [2]=unnested
                 var checkResultMeta = checkResult.Item3;
-                var value_report = $"property exists: {checkResult.Item2}, actual type {checkResultMeta[0]}, actual value: {checkResultMeta[1]}, unnested: {checkResultMeta[2]}";
+
+                var value_report = "";
+                if (checkResultMeta == null){
+                    //value_report = $"property exists: False";
+                    return;
+                }
+                else
+                    value_report = $"property exists: {checkResult.Item2}, actual type {checkResultMeta[0]}, actual value: {checkResultMeta[1]}, unnested: {checkResultMeta[2]}";
                 reportWriter.AddEntityIdMessageToCheckEntry(entity, predicateNode.ToString(), value_report);
             }
         }

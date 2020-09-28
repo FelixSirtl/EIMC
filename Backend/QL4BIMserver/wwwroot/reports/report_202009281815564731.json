@@ -1,0 +1,742 @@
+{
+  "DateTime": "2020-09-28T18:15:56.8091979+02:00",
+  "Query": "set1 = ImportModel(\"sample10_tagx.ifc\")\r\nset2 = TypeFilter(set1 is IfcOpeningElement)\r\nset3 = AttributeFilter(set2.Tag = \"tagX\")\r\nset4 = AttributeCheck(set1.Name = \"Fenster-005\")\r\n",
+  "ReportEntries": [
+    {
+      "Operator": "ImportModel",
+      "Context": "set1",
+      "OnlyTopItems": true,
+      "ElementCount": "147712",
+      "EntityIds": [
+        "IID_2",
+        "IID_4",
+        "IID_8",
+        "IID_11",
+        "IID_12",
+        "IID_13",
+        "IID_14",
+        "IID_15",
+        "IID_16",
+        "IID_17",
+        "IID_18",
+        "IID_19",
+        "IID_20",
+        "IID_22",
+        "IID_23",
+        "IID_24",
+        "IID_25",
+        "IID_26",
+        "IID_27",
+        "IID_28",
+        "IID_30",
+        "IID_31",
+        "IID_32",
+        "IID_33",
+        "IID_34",
+        "IID_35",
+        "IID_36",
+        "IID_38",
+        "IID_39",
+        "IID_40",
+        "IID_41",
+        "IID_42",
+        "IID_43",
+        "IID_44",
+        "IID_46",
+        "IID_47",
+        "IID_48",
+        "IID_49",
+        "IID_50",
+        "IID_52",
+        "IID_56",
+        "IID_58",
+        "IID_60",
+        "IID_61",
+        "IID_63",
+        "GID_1dzyWEOh99jRUBVYP$exmF",
+        "IID_78",
+        "GID_1C04o6$NNHwcgCPj0IE8q_",
+        "GID_1ILSV5hJsycOaEnpWBRWz9",
+        "IID_98",
+        "IID_100",
+        "IID_102",
+        "IID_104",
+        "IID_105",
+        "IID_108",
+        "IID_110",
+        "IID_112",
+        "IID_114",
+        "IID_116",
+        "IID_118",
+        "IID_119",
+        "IID_122",
+        "IID_123",
+        "IID_124",
+        "IID_126",
+        "IID_128",
+        "IID_131",
+        "IID_133",
+        "IID_135",
+        "IID_137",
+        "IID_138",
+        "IID_140",
+        "IID_142",
+        "IID_144",
+        "IID_145",
+        "IID_147",
+        "IID_150",
+        "IID_152",
+        "IID_154",
+        "IID_155",
+        "IID_157",
+        "IID_159",
+        "IID_161",
+        "IID_162",
+        "IID_164",
+        "IID_166",
+        "IID_167",
+        "IID_169",
+        "IID_171",
+        "IID_172",
+        "IID_174",
+        "IID_176",
+        "IID_177",
+        "IID_178",
+        "IID_179",
+        "IID_181",
+        "IID_183",
+        "IID_186",
+        "IID_188",
+        "IID_190"
+      ]
+    },
+    {
+      "Operator": "TypeFilter",
+      "Context": "set2",
+      "OnlyTopItems": true,
+      "ElementCount": "287",
+      "EntityIds": [
+        "GID_0K0dvY1IPhbCV7B_DX6PrF",
+        "GID_2xPU8dj308RNkYT$FdHU9f",
+        "GID_1hZhnOExZG0k0Ooi5JH8OV",
+        "GID_0moqWd_reBYVMGmpmwLFQw",
+        "GID_0I_N3gU1doaym8YJ5y2Z9P",
+        "GID_20l8gQHxoJbm8PUpWbxi6r",
+        "GID_1VFlp5pAMs1XgpFKz2_iSg",
+        "GID_1GoXhJbbP_n6B87$5fdYxb",
+        "GID_1JUjgpLi7BvV_uVfNVGZtv",
+        "GID_2UEHVdDwB9AyPWLT1U2fEc",
+        "GID_08ZJ04JPQ7o6ppMay0ZWuJ",
+        "GID_1nnjsbMqY7YdcNdC1AqxGg",
+        "GID_1cOoJDEtL5yw$77z3mV9R9",
+        "GID_2xVotwKCeWnmJOjp5wIQBv",
+        "GID_3xwh1HfO2eVYzHF7bfvJhs",
+        "GID_1rW3tGGThBbsXrUZ$sENE8",
+        "GID_2Bh2Gw2e7HWxzlFIq9uq6D",
+        "GID_3JiP0tkaVNdEeI_XRowPPH",
+        "GID_0D90FkLpjZz8qbu9Rnb4Ws",
+        "GID_0sL7fU14tplmOykxJrG$W4",
+        "GID_3c0aEJMwqf3JcIAuFHspEB",
+        "GID_1JJIK8IdY4WWXA06oPGgkR",
+        "GID_07clLBqVfFhqA0Ly48oLL0",
+        "GID_2CPH1U0BF9TCwB3eUJ2wIt",
+        "GID_3Bjeg3k82Z$8REKwXyg49O",
+        "GID_3vEf5G7_vx3PiaMDpEvaJx",
+        "GID_0xOIRrYePxM2jO$$ahYUir",
+        "GID_0wKyTrS0fcrb2xeBavDbAK",
+        "GID_1kBkRlkL1nGD8hhuAGAHsC",
+        "GID_2vfxIv3tzNYZ9Kq74F$C6v",
+        "GID_1UpQ6zzTb_YkjBliSuyqEk",
+        "GID_2o7$C$USmAjqpayMhVU7w_",
+        "GID_3GRjIRK12ofEyRkNW28kUU",
+        "GID_3MOcs0wY0HDSMkpuykgNQD",
+        "GID_1idorsswAPMJsZhi2hcpCp",
+        "GID_2rA59QdfrlSUbeeH16oMvb",
+        "GID_1FYsCmJvK2IMGyKgfR$9D4",
+        "GID_2gkXTQe6zBSP6WNBta6K_i",
+        "GID_23ldKhC47Mrtsu8vrvxiwQ",
+        "GID_2AjkvOzUvpMLUiMtcEanGq",
+        "GID_3hxtTBV7FzwLcr_Uop45MH",
+        "GID_1ETjRlyN0TRmQYHPUTuBce",
+        "GID_3NMrZ4SG8GiIJm3UIBFJzc",
+        "GID_10sYrqtMh6d9uDphbARsco",
+        "GID_0yiUNfr2NiE4nxfImsX7NS",
+        "GID_3V3ZGPYzdzCGRIy0ZegFA0",
+        "GID_0z78HE7u1yTI3UJs$r6PCW",
+        "GID_1O4Bx8zZ_Zzmf9V4onnDo4",
+        "GID_1rd6yBkSel$xRq3R9vjtCY",
+        "GID_2DgWNa7sqppWprcQAndlfp",
+        "GID_1luy3nD0sBYuh0AoFwIdbo",
+        "GID_0EuI0RnHJC6VcAn8SBtlDh",
+        "GID_3OLmV_0SmORqzZbhOOOldY",
+        "GID_1IniP$kBVOT2HV8VROUuzf",
+        "GID_0vtuh8CaYddmvZltXnlgEy",
+        "GID_3c2JpkOgryl0aJPPnvCRYn",
+        "GID_3k7q5BOCTwXqGznuXw7OVB",
+        "GID_1SjyNmGzU1lo6VumQGxsU8",
+        "GID_0zf$_yoNEjtxNqzznyw95b",
+        "GID_30TfsBVmk_5g2F3UZARuz$",
+        "GID_1ahe6_IhbOxowYQ0MaT0mS",
+        "GID_1$OVyOn3KXPY4RnJWdoutZ",
+        "GID_1pM$Thc2EPSvZxFUuhjAB_",
+        "GID_1jAiPU_13KoZtK2BnLvby0",
+        "GID_00AbH$yisqUkTZ0HOUe0bC",
+        "GID_0XuKzot9dbiN1gtIyjvPNP",
+        "GID_330utaEH68aEFTh0pSj0eJ",
+        "GID_17xdCfNM3kzmujJFXC5MTm",
+        "GID_2ZYTn8m$o_2gMR0sLxA$RE",
+        "GID_2LgrvkYvJE9NgjXPMxSvm4",
+        "GID_2XuDDweRsEunkZjiw5Prmx",
+        "GID_1pt4fzVY7K2QRKUDwSWcDA",
+        "GID_2u2VrhBVTlwx9EWR9d8PgL",
+        "GID_0gK0v2fwhyQVV2RmtWisot",
+        "GID_2I4u4kE$NAFVU6avpoBNBU",
+        "GID_35tssS2w5iwfdfORa93Ma0",
+        "GID_3CMW99E3x95vRcfA4hGK3l",
+        "GID_3hakmwasWrHJPMmJinRFcY",
+        "GID_1$fxLKtJM2CxNIiC0zh94P",
+        "GID_2A6KKZFnrptCU5ojikq90x",
+        "GID_1tH7PQB20Xmi0HuQgKUPvF",
+        "GID_0rLDm4nj96T5gngMnPUEzc",
+        "GID_04XsoU81tj21fETZSyZdJq",
+        "GID_2U_QSI3$nCYMaNDc8Nn5KU",
+        "GID_0N1M9bQlm4A$xsDUI4t1nl",
+        "GID_1KBHlHtzkeRvmNIWsMHSPK",
+        "GID_24b_yTFi2Kp$lDAxB2dRQc",
+        "GID_0GcGr$REEkaLvhHx9eVNWE",
+        "GID_1eLXuz8pHSYewI5zSmykj9",
+        "GID_3i77GslJJ0Di5GDj$dEcqv",
+        "GID_1xDIPlR$uUV38RPINm28cF",
+        "GID_2YQjM62w9qnGaHnlCMILPC",
+        "GID_2sO4dCz12qkvrAnlInxHLb",
+        "GID_3hjkrTkCP0mpSfuztM4FXt",
+        "GID_1wA05N0Q3SD1MiW$yL8AUw",
+        "GID_2ziTFTPLydn4veTy9zZRrH",
+        "GID_3rov$0$8oEydsDL0ZIwWM_",
+        "GID_203HYcZiYfqcRvKRWkobE7",
+        "GID_0rKT94m73UvcC6Y344Y7iJ",
+        "GID_3fczC9gDMZxMExdumXX3_M"
+      ]
+    },
+    {
+      "Operator": "AttributeFilter",
+      "Context": "set3",
+      "OnlyTopItems": false,
+      "ElementCount": "4",
+      "EntityIds": [
+        "GID_0K0dvY1IPhbCV7B_DX6PrF",
+        "GID_2UEHVdDwB9AyPWLT1U2fEc",
+        "GID_2xVotwKCeWnmJOjp5wIQBv",
+        "GID_3xwh1HfO2eVYzHF7bfvJhs"
+      ]
+    },
+    {
+      "Operator": "AttributeCheck",
+      "Context": "Validation",
+      "OnlyTopItems": false,
+      "ElementCount": null,
+      "EntityIds": [
+        {
+          "Item1": "IID_4",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Nicht definiert, unnested: false"
+        },
+        {
+          "Item1": "IID_11",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GRAPHISOFT, unnested: false"
+        },
+        {
+          "Item1": "IID_14",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: METRE, unnested: false"
+        },
+        {
+          "Item1": "IID_15",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: SQUARE_METRE, unnested: false"
+        },
+        {
+          "Item1": "IID_16",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: CUBIC_METRE, unnested: false"
+        },
+        {
+          "Item1": "IID_17",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: RADIAN, unnested: false"
+        },
+        {
+          "Item1": "IID_20",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: DEGREE, unnested: false"
+        },
+        {
+          "Item1": "IID_22",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: STERADIAN, unnested: false"
+        },
+        {
+          "Item1": "IID_24",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: SECOND, unnested: false"
+        },
+        {
+          "Item1": "IID_25",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GRAM, unnested: false"
+        },
+        {
+          "Item1": "IID_26",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: DEGREE_CELSIUS, unnested: false"
+        },
+        {
+          "Item1": "IID_27",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: LUMEN, unnested: false"
+        },
+        {
+          "Item1": "IID_30",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: WATT, unnested: false"
+        },
+        {
+          "Item1": "IID_32",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: METRE, unnested: false"
+        },
+        {
+          "Item1": "IID_34",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: KELVIN, unnested: false"
+        },
+        {
+          "Item1": "IID_38",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: JOULE, unnested: false"
+        },
+        {
+          "Item1": "IID_40",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GRAM, unnested: false"
+        },
+        {
+          "Item1": "IID_42",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: KELVIN, unnested: false"
+        },
+        {
+          "Item1": "IID_46",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GRAM, unnested: false"
+        },
+        {
+          "Item1": "IID_48",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: CUBIC_METRE, unnested: false"
+        },
+        {
+          "Item1": "GID_1dzyWEOh99jRUBVYP$exmF",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Projekt Buerogebaeude, unnested: false"
+        },
+        {
+          "Item1": "IID_78",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GS_TimeStamp, unnested: false"
+        },
+        {
+          "Item1": "GID_1C04o6$NNHwcgCPj0IE8q_",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GSPset_TimeStamp, unnested: false"
+        },
+        {
+          "Item1": "GID_1ILSV5hJsycOaEnpWBRWz9",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_122",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_124",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Natur Gras, unnested: false"
+        },
+        {
+          "Item1": "IID_128",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_147",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_177",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_179",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Natur Erde, unnested: false"
+        },
+        {
+          "Item1": "IID_183",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_197",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_216",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_246",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_260",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_270",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_280",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_313",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_346",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_371",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_377",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_391",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_410",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_440",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_454",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_480",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_503",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_517",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_536",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_566",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_580",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_590",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_629",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_643",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_653",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_692",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_706",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_716",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_755",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_769",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_788",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_818",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_832",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_851",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_881",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_895",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_905",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_944",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_958",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_968",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1007",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1021",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1040",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1070",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1084",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1103",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1133",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1147",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1166",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1196",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1210",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1229",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1259",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1269",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Freiformen, unnested: false"
+        },
+        {
+          "Item1": "IID_1290",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "GID_1b0aQcLSb6KP4cEKR_kZZp",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Gelaende 0815, unnested: false"
+        },
+        {
+          "Item1": "GID_0LVg96RE_d_KhBpRX4WQRF",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1313",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GrossPerimeter, unnested: false"
+        },
+        {
+          "Item1": "IID_1316",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GrossArea, unnested: false"
+        },
+        {
+          "Item1": "GID_3aD0noCQ_lBJHNz9wx64zb",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: BaseQuantities, unnested: false"
+        },
+        {
+          "Item1": "GID_0GsxTNR7JoCYcNO3Lc8ZKP",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "GID_2yeSWdixz5hBpMywNJnu8J",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Buerogebaeude, unnested: false"
+        },
+        {
+          "Item1": "GID_0_PF1s1U19Il2fnEZYavLG",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1338",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GrossFloorArea, unnested: false"
+        },
+        {
+          "Item1": "GID_32EZ5wVVcdpNWcQ3ZVeE6Y",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: BaseQuantities, unnested: false"
+        },
+        {
+          "Item1": "GID_3MNPqed9o1uI3WNiwK8w6s",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "GID_3krrpJBfL2SBWSONoQ68Xx",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Keller, unnested: false"
+        },
+        {
+          "Item1": "GID_2fW1vbOOplVDSzlS0EqqlH",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: Null, unnested: false"
+        },
+        {
+          "Item1": "IID_1360",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: NetHeight, unnested: false"
+        },
+        {
+          "Item1": "IID_1361",
+          "Item2": "AttributeAccessNode: set1.Name EqualsPred CStringNode: Fenster-005",
+          "Item3": "property exists: True, actual type CStringNode, actual value: GrossHeight, unnested: false"
+        }
+      ]
+    }
+  ]
+}

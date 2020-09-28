@@ -21,6 +21,10 @@ XCHECK_REL_OPT = Template('$outval = XCheck($inrel, [$index].$attribute = $value
 TOUCH_SET_OPT = Template('$outval = Touch($inset1, $inset2)')
 #TOUCH_REL_OPT = Template('$outval = Touch($inrel, [$index].$attribute = $value)')
 
+
+ATTCHECK_SET_OPT = Template('$outval = AttributeCheck($inset.$attribute = $value)')
+ATTCHECK_REL_OPT = Template('$outval = AttributeCheck($inrel, [$index].$attribute = $value)')
+
 RELNAME ="rel"
 SETNAME = "set"
 
@@ -110,6 +114,18 @@ class qlbuilder:
             subst = ATTFILTER_SET_OPT.substitute(outval=self.vari2outval(next_vari), inset=str(current_var), attribute=attribute, value=value)
         elif (isinstance(current_var, self.relation)):
             subst = ATTFILTER_REL_OPT.substitute(outval=self.vari2outval(next_vari), inrel=str(current_var),  index="-1", attribute=attribute, value=value)
+        self.statements.append(subst)
+
+
+    def addAttCheckOpt(self, attribute, value, index=None):
+        current_var = self.opt_init()
+
+        next_vari = self.next_variable()
+        subst = None
+        if(isinstance(current_var, self.set)):
+            subst = ATTCHECK_SET_OPT.substitute(outval=self.vari2outval(next_vari), inset=str(current_var), attribute=attribute, value=value)
+        elif (isinstance(current_var, self.relation)):
+            subst = ATTCHECK_REL_OPT.substitute(outval=self.vari2outval(next_vari), inrel=str(current_var),  index="-1", attribute=attribute, value=value)
         self.statements.append(subst)
 
     

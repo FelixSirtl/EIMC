@@ -52,7 +52,7 @@ namespace QL4BIMinterpreter.OperatorsLevel0
                 if (OsHelper.IsWindows())
                 {
                     var fileName = Path.GetFileName(path);
-                    path = (Path.Combine(path, @"..\..\..\..\..\"));
+                    path = (Path.Combine(path, @"..\..\"));
                     path = Path.GetFullPath(path);
                     path = Path.Combine(path, fileName);
                 }

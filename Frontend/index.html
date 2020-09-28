@@ -166,7 +166,7 @@
     
     <category name="Use Case">
         <block type="importmodel">
-          <field name="Importquery">"C:\Users\enter_own_path.ifc"</field>
+          <field name="Importquery">"sample10_tagx.ifc"</field>
           <next>
             <block type="applicability">
               <value name="NAME">
@@ -314,11 +314,13 @@
       })
       .then(function (response) {
         data = response.data
-        document.getElementById("statusarea").value += data
+         statusarea = document.getElementById("statusarea");
+         statusarea.value += data
         if (data.startsWith("%report_")){
 
           clearInterval(interval);
           interval = undefined;
+          statusarea.style.display === "none"
 
           var res = data.substring(8, data.length)
 

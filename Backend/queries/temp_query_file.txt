@@ -1,2 +1,4 @@
-set1 = ImportModel("sample10.ifc")
-set2 = TypeFilter(set1 is IfcWindow)
+set1 = ImportModel("sample10_tagx.ifc")
+set2 = TypeFilter(set1 is IfcOpeningElement)
+set3 = AttributeFilter(set2.Tag = "tagX")
+set4 = AttributeCheck(set3.Name = "Fenster-005")

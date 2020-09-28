@@ -1,0 +1,22 @@
+{
+  "DateTime": "2020-09-28T17:35:42.0585036+02:00",
+  "Query": "set1 = ImportModel(\"sample10_tagx.ifc\")\r\nset2 = TypeFilter(set1 is IfcOpeningElement)\r\n",
+  "ReportEntries": [
+    {
+      "Operator": "ImportModel",
+      "Context": "set1",
+      "OnlyTopItems": false,
+      "ElementCount": "1",
+      "EntityIds": [
+        "IID_3"
+      ]
+    },
+    {
+      "Operator": "TypeFilter",
+      "Context": "set2",
+      "OnlyTopItems": false,
+      "ElementCount": "0",
+      "EntityIds": []
+    }
+  ]
+}

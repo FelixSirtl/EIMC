@@ -57,8 +57,8 @@ namespace QL4BIMinterpreter
 
         public string Execute(string query)
         {
-            //try
-            //{
+            try
+            {
 
             reportWriter.Query = query;
 
@@ -71,13 +71,11 @@ namespace QL4BIMinterpreter
 
             return reportWriter.WriteReport();
             
-            //}
-            //catch (QueryException e)
-            //{
-            //    Console.Clear();
-            //    Console.WriteLine(e.Message);
-            //    Console.ReadLine();
-            //}
+            }
+            catch (Exception e)
+            {
+               return "Error:" + e.Message;
+            }
 
         }
     }

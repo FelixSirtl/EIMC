@@ -1,0 +1,29 @@
+{
+  "DateTime": "2020-09-28T17:16:05.5985499+02:00",
+  "Query": "set1 = ImportModel(\"sample10_tagx.ifc\")\r\nset2 = TypeFilter(set1 is IfcOpeningElement)\r\nset3 = AttributeFilter(set2.Tag = \"tagX\")\r\n",
+  "ReportEntries": [
+    {
+      "Operator": "ImportModel",
+      "Context": "set1",
+      "OnlyTopItems": false,
+      "ElementCount": "1",
+      "EntityIds": [
+        "IID_3"
+      ]
+    },
+    {
+      "Operator": "TypeFilter",
+      "Context": "set2",
+      "OnlyTopItems": false,
+      "ElementCount": "0",
+      "EntityIds": []
+    },
+    {
+      "Operator": "AttributeFilter",
+      "Context": "set3",
+      "OnlyTopItems": false,
+      "ElementCount": "0",
+      "EntityIds": []
+    }
+  ]
+}

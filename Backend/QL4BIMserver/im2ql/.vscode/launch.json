@@ -9,7 +9,9 @@
             "type": "python",
             "request": "launch",
             "module": "main",
-            "args": ["{\"ImportModel\":\"C:\\\\Users\\\\enter_own_path.ifc\",\"Applicabilities\":[{\"Applicability\":[{\"TypeFilter\":\"IfcWindow\"}]},{\"Applicability\":[{\"TypeFilter\":\"IfcWall\"},{\"PropertyFilter\":\"LoadBearing true\"}]}],\"Validation\":[{\"XCheck\":\"ThermalTrancemittance = 1.3\"}]}"
+            "args": [
+                "{$ImportModel$:$sample10_tagx.ifc$,\n$Applicabilities$:[\n\t{$Applicability$:\n[  \t\t{$TypeFilter$:$IfcOpeningElement$},\n  \t\t{$AttributeFilter$:$Tag tagX$}]}],\n$Validation$:[\n  \t{$AttributeCheck$:$Name Fenster-005$}]\n}"
+
             ]
         },
 
@@ -28,5 +30,3 @@
         }
     ]
 }
-
-\"{\r\n    \"ImportModel\": \"C:\\\\Users\\\\enter_own_path.ifc\",\r\n    \"Applicabilities\": [\r\n      {\r\n        \"Applicability\": [\r\n          {\r\n            \"TypeFilter\": \"IfcWindow\"\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"Applicability\": [\r\n          {\r\n            \"TypeFilter\": \"IfcWall\"\r\n          },\r\n          {\r\n            \"PropertyFilter\": {\"Attribute\":\"LoadBearing\", \"Opt\":\"Eq\", \"Value\":\"true\"}\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"Validation\": [\r\n      {\r\n        \"XCheck\": {\"Attribute\":\"ThermalTrancemittance\", \"Opt\":\"Eq\", \"Value\":12}\r\n      }\r\n    ]\r\n  }\"
